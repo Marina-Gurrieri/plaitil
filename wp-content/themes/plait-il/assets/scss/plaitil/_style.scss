@@ -1,9 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700);
 
 body {
     background: #161616;
+    color: #ffffff;
     &.mce-content-body {
         background: inherit;
+        color: inherit;
     }
     &.admin-bar {
         #header {
@@ -16,13 +19,18 @@ body {
     #header {
         position: fixed;
         top: 0;
-        width: 100%;
+        width: 100vw;
         margin: auto;
         left: auto;
         right: auto;
         z-index: 90;
         > .row {
             padding: 35px 0 0;
+            @include breakpoint(large down) {
+                padding: 35px 20px 0;
+                box-sizing: border-box;
+                max-width: inherit;
+            }
             .menu {
                 font-size: 38px;
                 line-height: 82px;
@@ -53,6 +61,9 @@ body {
             color: #ffffff;
             display: inline-block;
             cursor: pointer;
+            @include breakpoint(large down) {
+                padding: 35px 20px 0;
+            }
         }
         .menu-header-container {
             text-align: center;
@@ -78,6 +89,12 @@ body {
     }
     .owl-header {
         max-height: 600px;
+        margin-bottom: 200px;
+        @include breakpoint(large down) {
+            margin-top:130px;
+            margin-bottom: 20px;
+            max-height:300px;
+        }
         .owl-item {
             .item {
                 height: 600px;
@@ -86,6 +103,9 @@ body {
                 background-size: cover;
                 position: relative;
                 text-align: center;
+                @include breakpoint(large down) {
+                    height:300px;
+                }
                 &::before {
                     position: absolute;
                     display: block;
@@ -107,6 +127,10 @@ body {
                     padding-top: 240px;
                     color: #ffffff;
                     margin: 0;
+                    @include breakpoint(large down) {
+                        padding-top: 65px;
+                        font-size: 40px;
+                    }
                 }
                 a {
                     margin-top:25px;
@@ -117,6 +141,9 @@ body {
                     color: $yellow;
                     font-size: 18px;
                     text-transform: uppercase;
+                    @include breakpoint(large down) {
+                        padding: 10px 50px;
+                    }
                 }
             }
         }
@@ -160,6 +187,300 @@ body {
                 &.active {
                     background: $yellow;
                 }
+            }
+        }
+    }
+    h3 {
+        font-family: 'Kaushan Script', cursive;
+        font-size: 150px;
+        color: #ffffff;
+        position: relative;
+        text-align: center;
+        margin-bottom: 110px;
+        @include breakpoint(large down) {
+            font-size: 40px;
+        }
+        &:first-letter {
+            color: $red;
+        }
+        &::before {
+            content: attr(data-title);
+            display: block;
+            position: absolute;
+            opacity: 0.03;
+            font-size: 366px;
+            bottom: 0;
+            margin: auto;
+            left: 0;
+            right: 0;
+            @include breakpoint(large down) {
+                font-size: 0;
+            }
+        }
+        &#agence {
+            padding-top: 200px;
+            @include breakpoint(large down) {
+                padding-top: 80px;
+            }
+        }
+        &.projets {
+            margin-top: 300px;
+            text-align: left;
+            margin-bottom: 0;
+            @include breakpoint(large down) {
+                margin-top: 100px;
+                text-align: center;
+            }
+        }
+        &.contact {
+            padding-top: 200px;
+            @include breakpoint(large down) {
+                padding-top: 80px;
+                margin-bottom: 0;
+            }
+            &::before {
+                font-size: 300px;
+                @include breakpoint(large down) {
+                    font-size: 0;
+                }
+            }
+        }
+    }
+    h4 {
+        color: $red;
+        font-size: 30px;
+        font-family: 'Kaushan Script', cursive;
+        margin-bottom: 20px;
+        @include breakpoint(large down) {
+            margin-top: 20px;
+        }
+    }
+    .agency {
+        @include breakpoint(large down) {
+            text-align: center;
+        }
+        .img {
+            @include breakpoint(large down) {
+                display: none;
+            }
+        }
+        .btn {
+            float: left;
+            width:45%;
+            display: inline-block;
+            border: 3px solid #ffffff;
+            padding: 25px 25px;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: all ease 0.3s;
+            @include breakpoint(large down) {
+                width: 80%;
+                float: none;
+                margin: 10% 10% 0;
+            }
+            &:hover {
+                border-color: $yellow;
+                color: $yellow;
+            }
+            &:first-of-type {
+                margin-right: 10%;
+            }
+        }
+        section {
+            @include breakpoint(large down) {
+                text-align: left;
+                width: calc(100% / 12 * 10);
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+    .projets {
+        margin-bottom: 300px;
+        @include breakpoint(large down) {
+            margin-bottom: 100px;
+        }
+        .clear {
+            &::after, &::before {
+                clear: both;
+                content: "";
+                display: block;
+            }
+        }
+        .text {
+            margin-top: -70px;
+            margin-bottom: 95px;
+            @include breakpoint(large down) {
+                margin-top: 0;
+                margin-bottom: 50px;
+            }
+        }
+        > div {
+            float: left;
+            position: relative;
+            &:hover {
+                > section {
+                    opacity: 1;
+                }
+            }
+            img {
+                filter: grayscale(100%);
+                width: 100%;
+            }
+            &:nth-of-type(even) {
+                margin-top: -150px;
+                margin-bottom: 0;
+                @include breakpoint(large down) {
+                    margin-top: 0;
+                }
+            }
+            &.projet:nth-of-type(2) {
+                width: calc(100% / 12 * 4);
+                margin-left: calc(100% / 12);
+            }
+            &.projet:nth-of-type(3) {
+                width: calc(100% / 12 * 5);
+                margin-left: calc(100% / 12);
+            }
+            &.projet:nth-of-type(4) {
+                width: calc(100% / 12 * 4);
+                margin-left: calc(100% / 12);
+            }
+            &.projet:nth-of-type(5) {
+                width: calc(100% / 12 * 4);
+                margin-left: calc(100% / 12 * 2);
+                margin-top: 95px;
+            }
+            &.projet:nth-of-type(6) {
+                width: calc(100% / 12 * 5);
+                margin-left: calc(100% / 12 * 1);
+            }
+            @include breakpoint(large down) {
+                float: none;
+                display: block;
+                width: calc(100% / 12 * 10) !important;
+                margin: 20px auto !important;
+                text-align: center;
+                img {
+                    max-width: 50%;
+                }
+            }
+            section {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                height: 100%;
+                background: rgba(255,222,0,0.5);
+                opacity: 0;
+                transition: opacity ease 0.5s;
+                @include breakpoint(large down) {
+                    display: none;
+                }
+                > div {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    text-align: center;
+                    padding: 0 20px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    h5 {
+                        font-size: 45px;
+                        font-family: 'Kaushan Script', cursive;
+                        text-transform: uppercase;
+                        margin:0;
+                    }
+                    h6 {
+                        font-size: 22px;
+                        font-style: italic;
+                        margin-top: 20px;
+                    }
+                    a {
+                        display:block;
+                        padding:15px 30px;
+                        border: 3px solid #ffffff;
+                        color: #ffffff;
+                        text-transform: uppercase;
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .contact {
+        @include breakpoint(large down) {
+            width:calc(100% / 12 * 10);
+            margin: auto;
+        }
+        .form {
+            float: none !important;
+            margin: 50px auto;
+            input, textarea {
+                border: 1px solid #ffffff;
+                background: transparent;
+                box-shadow: none;
+                color: #ffffff;
+                font-size: 15px;
+                &[type=submit] {
+                    width: 100%;
+                    border-color: $red;
+                    color: $red;
+                    padding: 10px 0;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    #footer {
+        header {
+            margin: 30px auto;
+        }
+        .adresse {
+            font-size: 18px;
+            .fa {
+                color: $red;
+                font-size: 34px;
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+        }
+        .social {
+            a {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 30px;
+                color: #ffffff;
+                margin-left:-0.25rem;
+                &:nth-of-type(1) {
+                    background: #3b5998;
+                }
+                &:nth-of-type(2) {
+                    background: #50abf1;
+                }
+                &:nth-of-type(3) {
+                    background: #2e2c3b;
+                }
+                &:nth-of-type(4) {
+                    background: #cb2027;
+                }
+            }
+        }
+        #map {
+            height: 350px;
+        }
+        section {
+            padding: 30px 0;
+            font-size: 14px;
+            a {
+                color: #ffffff;
             }
         }
     }
