@@ -11,7 +11,7 @@
 ?>
 
 		</section>
-		<div id="footer-container">
+		<div id="footer-container" class="hide">
 			<footer id="footer">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
 				<?php dynamic_sidebar( 'footer-widgets' ); ?>
@@ -27,7 +27,7 @@
 </div><!-- Close off-canvas content wrapper -->
 <?php endif; ?>
 
-
+<script src="<?php echo get_stylesheet_directory_uri() ?>/assets/components/owl.carousel/dist/owl.carousel.min.js" type="text/javascript"></script>
 <?php wp_footer(); ?>
 <?php do_action( 'foundationpress_before_closing_body' ); ?>
 </body>

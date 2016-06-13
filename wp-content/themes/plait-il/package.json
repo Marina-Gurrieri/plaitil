@@ -73,6 +73,10 @@
     "phpcbf": "gulp phpcbf",
     "postinstall": "bower install && gulp build",
     "production": "gulp --production",
-    "watch": "gulp"
+    "watch": "gulp",
+    "bwi": "bower install"
+  },
+  "dependencies": {
+    "owl.carousel": "^2.1.4"
   }
 }
