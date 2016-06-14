@@ -8,37 +8,42 @@
 
 get_header(); ?>
 
-<div id="single-post" role="main">
+<div id="single-post" class="projet" role="main">
 
-<?php do_action( 'foundationpress_before_content' ); ?>
-<?php while ( have_posts() ) : the_post(); ?>
-	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-		<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php foundationpress_entry_meta(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
+
+		<h1><?php the_title() ?></h1>
+
+		<header class="row">
+			<div class="large-offset-1 large-5 columns">
+				<img src="<?php the_field('vignette') ?>" alt="<?php the_title() ?>" />
+			</div>
+			<aside class="large-8 columns end">
+				<h2><?php the_field('punchline') ?></h2>
+				<section><?php the_content() ?></section>
+				<div>
+					<a href="#!visite" class="btn">Visiter le site <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					<a href="#" class="btn"><i class="fa fa-share-alt" aria-hidden="true"></i> <span>Partager</span>
+						<span>
+							<i class="fa fa-facebook" aria-hidden="true"></i>
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+			</aside>
 		</header>
-		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
-		<div class="entry-content">
 
-		<?php
-			if ( has_post_thumbnail() ) :
-				the_post_thumbnail();
-			endif;
-		?>
+		<section>
+			<aside>
+				<div><?php the_field('date') ?></div>
+				<div><?php the_field('caracteristiques') ?></div>
+			</aside>
+			<img src="<?php the_field('visu_mockup') ?>" alt="<?php the_title() ?>" />
+		</section>
 
-		<?php the_content(); ?>
-		</div>
-		<footer>
-			<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-			<p><?php the_tags(); ?></p>
-		</footer>
-		<?php do_action( 'foundationpress_post_before_comments' ); ?>
-		<?php comments_template(); ?>
-		<?php do_action( 'foundationpress_post_after_comments' ); ?>
-	</article>
-<?php endwhile;?>
+	<!--  -->
 
-<?php do_action( 'foundationpress_after_content' ); ?>
-<?php get_sidebar(); ?>
+	<?php endwhile;?>
+
 </div>
 <?php get_footer();

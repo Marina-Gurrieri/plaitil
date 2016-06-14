@@ -26,21 +26,25 @@ get_header(); ?>
     </div>
 </div>
 
-<div class="row agency">
+<div class="row agency flex">
     <div class="large-3 large-offset-1 columns img">
-        Image 1
+        <img src="<?php bloginfo('template_directory'); ?>/assets/plait-il/agence-visu-1.jpg" alt="<?php bloginfo('name'); ?>" />
     </div>
     <div class="large-2 large-offset-1 columns img">
-        Image 2
+        <img src="<?php bloginfo('template_directory'); ?>/assets/plait-il/agence-visu-2.jpg" alt="<?php bloginfo('name'); ?>" />
     </div>
-    <div class="large-3 large-offset-1 columns img">
-        Image 3
+    <div class="large-3 large-offset-1 columns img end">
+        <img src="<?php bloginfo('template_directory'); ?>/assets/plait-il/agence-visu-3.jpg" alt="<?php bloginfo('name'); ?>" />
     </div>
+</div>
+<div class="row agency">
     <div class="large-5 large-offset-1 columns">
-        Image 4
+        <img src="<?php bloginfo('template_directory'); ?>/assets/plait-il/agence-visu-principal.jpg" alt="<?php bloginfo('name'); ?>" />
         <div class="row">
-            <a class="btn" href="#projets">Projets <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            <a class="btn" href="#contact">Contact <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <div class="small-12 columns">
+                <a class="btn" href="#projets">Projets <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a class="btn" href="#contact">Contact <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </div>
         </div>
     </div>
     <div class="large-4 large-offset-1 columns end">
@@ -69,7 +73,8 @@ get_header(); ?>
         while($catquery->have_posts()) : $catquery->the_post();
     ?>
     <div class="projet clear">
-        <img src="<?php bloginfo('template_directory'); ?>/assets/plait-il/projet1.png" />
+        <a href="<?php the_permalink() ?>">
+        <img src="<?php the_field('image_zone_projets_sur_laccueil'); ?>" />
         <section class="clear">
             <div>
                 <h5><?php the_title() ?></h5>
@@ -79,6 +84,7 @@ get_header(); ?>
                 </a>
             </div>
         </section>
+        </a>
     </div>
     <?php endwhile;?>
 </div>
