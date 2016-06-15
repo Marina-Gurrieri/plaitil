@@ -14,7 +14,7 @@ get_header(); ?>
         <a href="<?php the_permalink() ?>">Voir le projet <i class='fa fa-angle-right' aria-hidden='true'></i></a>
     </div>
     <?php endwhile; ?>
-    <div class="item" style="background-image:url('<?php the_field('image_slider'); ?>')">
+    <div class="item" style="background-image:url('<?php bloginfo("template_directory") ?>/assets/plait-il/img-slider-contact.jpg')">
         <h2>Un projet ?</h2>
         <a href="#contact">Contactez-nous</a>
     </div>
