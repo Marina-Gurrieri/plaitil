@@ -141,11 +141,11 @@ body {
                     color: #ffffff;
                     font-size: 18px;
                     text-transform: uppercase;
+                    transition: all ease 0.3s;
                     @include breakpoint(large down) {
                         padding: 10px 50px;
                     }
                     &:hover {
-                        transition: all ease 0.3s;
                         border-color: #e50606;
                         color: #e50606;
                     }
@@ -436,10 +436,12 @@ body {
                     a {
                         display:block;
                         padding:15px 30px;
-                        border: 3px solid #ffffff;
                         color: #ffffff;
                         text-transform: uppercase;
                         margin-top: 20px;
+                        &:last-of-type {
+                            border: 3px solid #ffffff;
+                        }
                     }
                 }
             }
@@ -702,6 +704,77 @@ body {
                         width: 75%;
                         top: 0;
                         margin-left: -30px;
+                    }
+                }
+            }
+        }
+        + footer {
+            &.clear {
+                &::before, &::after {
+                    clear: both;
+                    content: "";
+                    display: block;
+                }
+            }
+            &.nav-posts {
+                > aside {
+                    a {
+                        height: 300px;
+                        line-height: 300px;
+                        font-size: 30px;
+                        background: $red;
+                        text-transform: uppercase;
+                        display: block;
+                        color: #ffffff;
+                        box-sizing: border-box;
+                        position: relative;
+                        transition: background ease 0.5s;
+                        @include breakpoint(medium down) {
+                            height: 200px;
+                            line-height: 200px;
+                        }
+                        @include breakpoint(small down) {
+                            height: 100px;
+                            line-height: 100px;
+                        }
+                        &::after {
+                            content: "";
+                            height: 2px;
+                            position: absolute;
+                            top: 50%;
+                            background: #ffffff;
+                            width: 96px;
+                            @include breakpoint(small down) {
+                                display: none;
+                            }
+                        }
+                        &:hover {
+                            background: #7e0e0e;
+                        }
+                    }
+                    &:first-of-type {
+                        padding-left: 0;
+                        a {
+                            padding-right: 15%;
+                            &::after {
+                                right: 30%;
+                                @include breakpoint(medium down) {
+                                    right: 50%;
+                                }
+                            }
+                        }
+                    }
+                    &:last-of-type {
+                        padding-right:0;
+                        a {
+                            padding-left: 15%;
+                            &::after {
+                                left: 30%;
+                                @include breakpoint(medium down) {
+                                    left: 50%;
+                                }
+                            }
+                        }
                     }
                 }
             }

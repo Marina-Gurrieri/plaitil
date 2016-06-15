@@ -41,9 +41,17 @@ get_header(); ?>
 			<img src="<?php the_field('visu_mockup') ?>" alt="<?php the_title() ?>" />
 		</section>
 
-	<!--  -->
-
-	<?php endwhile;?>
-
 </div>
+
+<footer class="clear nav-posts">
+	<aside class="columns small-6 text-right">
+		<?php previous_post_link('%link', 'PRE.', TRUE); ?>
+	</aside>
+	<aside class="columns small-6 float-right text-left">
+		<?php next_post_link('%link', 'SUIV.', TRUE); ?>
+	</aside>
+</footer>
+
+<?php endwhile;?>
+
 <?php get_footer();
